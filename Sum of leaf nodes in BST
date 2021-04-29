@@ -1,0 +1,36 @@
+PROBLEM: 67 34 82 12 45 78
+
+Output:
+135
+
+Explanation:
+In first test case, the BST for the given input will be-
+
+               67
+             /    \
+           34      82
+         /    \    /
+        12   45   78
+
+Hence, the required sum= 12 + 45 + 78 = 135
+
+SOLUTION:
+
+void findSum(Node *r, int &sum){
+    if(r!=NULL){
+        if(r->left==NULL && r->right==NULL)
+            sum+=(r->data);
+        findSum(r->left,sum);
+        findSum(r->right,sum);
+     }
+     return;
+}
+int sumOfLeafNodes(Node *r ){
+    int sum=0;
+    findSum(r,sum);
+    return sum;
+}
+
+
+
+
